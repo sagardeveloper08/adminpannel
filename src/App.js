@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import Login from './components/Auth/Login'
+import Home from './components/Home'
+import AddClients from './components/Functions/AddClients'
+import GetData from './components/Functions/GetData'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Protected from './components/protected/protected'
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/home">< Protected Cmp={Home} /></Route>
+          <Route path="/add" >
+            <Protected Cmp={AddClients} />
+          </Route>
+          <Route path="/get">
+          <Protected Cmp={GetData}/>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
