@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate";
 
 
 const GetData = () => {
-    const url = `http://mighty-chamber-40377.herokuapp.com/api/get/page=2&limit=2`
+    const url = `https://mighty-chamber-40377.herokuapp.com/api/get/page=2&limit=2`
     const [items, setItems] = useState([]);
     const [pageCount, setpageCount] = useState(0);
     const [input, setInput] = useState('')
@@ -16,7 +16,7 @@ const GetData = () => {
     useEffect(() => {
         const getComments = async () => {
             const res = await fetch(
-                `http://mighty-chamber-40377.herokuapp.com/api/get?page=1&limit=${limit}`
+                `https://mighty-chamber-40377.herokuapp.com/api/get?page=1&limit=${limit}`
                 // `https://jsonplaceholder.typicode.com/comments?_page=1&_limit=${limit}`
             );
             const data = await res.json();
